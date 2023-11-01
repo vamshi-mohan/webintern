@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>temperature converter</title>
+</head>
+
+<body>
+    <div class="main">
+        <h2>Temperature Converter</h2>
+        <div class="conv">
+            <div class="ele">
+                <label>Fahrenheit</label>
+                <input type="number" id="farenhit">
+            </div>
+            <br>
+
+            <div class="ele">
+                <label>Degree Celsius</label>
+                <input type="number" id="celcius">
+            </div>
+        </div>
+    </div>
+</body>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 4px 8px 10px 10px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            
+        }
+        body{
+            background-image: url(temp.webp);
+            width: 20%;
+            height:500px;
+            background-size: cover;
+            background-repeat: no-repeat; 
+            text-align:right;
+        }
+
+        .main {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-decoration: blue;
+        }
+
+        .main h2 {
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;          
+            text-align: center;
+            color:#d7c225;
+            white-space: nowrap;
+            padding-bottom: 13px;
+        }
+
+        .main h2:before {
+            background-color: red;
+            content: '';
+            display: block;
+            height: 3px;
+            width: 375px;
+            margin-bottom: 5px;
+        }
+
+        .main h2:after {
+            background-color: blue;
+            content: '';
+            display: block;
+            position:relative;
+            right: 0;
+            bottom: 0;
+            height: 3px;
+            width: 375px;
+            margin-bottom: 0.25em;
+        }
+
+
+        .conv {
+
+            width: 80%;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 10px;
+            padding: 50px 20px;
+        }
+
+        .ele {
+            flex-basis: 32%;
+            text-align: center;
+        }
+
+        .ele label {
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            color:white;
+        }
+
+        .ele input {
+            width: 150px;
+            height: 30px;
+            background: white;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
+ <script>
+        let celcius =
+            document.getElementById('celcius');
+        let farenhit =
+            document.getElementById('farenhit');
+
+        celcius.oninput = function () {
+            let f = (parseFloat(celcius.value) * 9) / 5 + 32;
+            farenhit.value = parseFloat(f.toFixed(2));
+        }
+        farenhit.oninput = function () {
+            let c = ((parseFloat(
+                farenhit.value) - 32) * 5) / 9;
+            celcius.value = parseFloat(c.toFixed(2));
+        }
+
+
+    </script>
+</body>
+</html>
